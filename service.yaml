@@ -1,0 +1,15 @@
+apiversion: v1
+kind: Service
+metadata:
+    name: ml-model-Service
+    spec:
+      type: LoadBalancer
+      selector:
+       app: ml-model
+      ports:
+      - protocol: TCP
+        port: 8000
+        targetPort: 5001
+
+
+        

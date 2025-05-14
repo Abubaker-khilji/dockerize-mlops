@@ -1,0 +1,23 @@
+apiversion: apps/v1
+kind : Deployment
+metadata:
+    name: ml-model-deployment
+spec:
+   replicas: 3 
+   selector:
+      matchLabels:
+        app: ml-model
+
+   template:
+       metadata:
+        labels:
+          app: ml-model
+
+       spec:
+        containers:
+        - name: ml-model-container
+          image: ml-model-app:latest
+          imagePullPolicy: Never
+          ports
+          - containerPort: 5001
+       
